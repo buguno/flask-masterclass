@@ -1,5 +1,4 @@
-from flask import Flask, request
-from flask.wrappers import Response
+from flask import Flask, redirect, request, url_for
 
 app = Flask(__name__)
 
@@ -7,6 +6,11 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     return "<a href='/posts'>Posts</a>"
+
+
+@app.route('/redirect')
+def my_redirect():
+    return redirect(url_for('response'))
 
 
 @app.route('/response')
